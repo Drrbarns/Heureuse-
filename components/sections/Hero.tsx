@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { COMPANY_INFO } from "@/lib/constants";
 import { ArrowRight, Phone } from "lucide-react";
@@ -8,8 +9,16 @@ export default function Hero() {
         <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-heureuse-navy">
             {/* Background with Gradient/Image Overlay */}
             <div className="absolute inset-0 z-0">
-                {/* Placeholder for real hero image - using a dark abstract gradient for Premium feel */}
-                <div className="absolute inset-0 bg-[url('/truck1.jpg')] bg-cover bg-center opacity-100 md:opacity-20 md:mix-blend-overlay"></div>
+                {/* Hero Background Image - Optimized with Next.js Image */}
+                <Image
+                    src="/truck1.jpg"
+                    alt="Heureuse Logistics Fuel Truck"
+                    fill
+                    className="object-cover opacity-100 md:opacity-20 md:mix-blend-overlay"
+                    priority
+                    quality={75}
+                    sizes="100vw"
+                />
                 <div className="absolute inset-0 bg-heureuse-navy/80 md:bg-gradient-to-r md:from-heureuse-navy md:from-10% md:via-heureuse-navy/95 md:to-heureuse-navy/60"></div>
                 {/* Animated decorative blob */}
                 <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-heureuse-gold/10 rounded-full blur-3xl animate-pulse"></div>
@@ -64,7 +73,17 @@ export default function Hero() {
                 <div className="hidden lg:block relative h-[600px] w-full animate-in slide-in-from-right duration-1000 fade-in">
                     {/* Abstract Composition using CSS/Shapes or placeholders */}
                     <div className="absolute inset-0 bg-gradient-to-br from-heureuse-gold/20 to-transparent rounded-2xl border border-white/10 backdrop-blur-sm p-4 transform rotate-3">
-                        <div className="h-full w-full bg-[url('/tank1.jpg')] bg-cover bg-center rounded-xl opacity-80 shadow-2xl"></div>
+                        <div className="relative h-full w-full rounded-xl overflow-hidden opacity-80 shadow-2xl">
+                            <Image
+                                src="/tank1.jpg"
+                                alt="Fuel Tank"
+                                fill
+                                className="object-cover"
+                                loading="lazy"
+                                quality={75}
+                                sizes="(max-width: 1024px) 0vw, 50vw"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

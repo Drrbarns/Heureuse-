@@ -34,42 +34,57 @@ function Logos() {
         <>
             {/* Shell */}
             <div className="relative h-20 w-32 flex items-center justify-center transition-transform duration-300 transform hover:scale-90">
-                <img
+                <Image
                     src="/logos/shell.png"
                     alt="Shell"
+                    width={128}
+                    height={64}
                     className="h-16 w-auto object-contain"
+                    loading="lazy"
                 />
             </div>
             {/* TotalEnergies */}
             <div className="relative h-20 w-32 flex items-center justify-center transition-transform duration-300 transform hover:scale-90">
-                <img
+                <Image
                     src="/logos/total.png"
                     alt="TotalEnergies"
+                    width={128}
+                    height={56}
                     className="h-14 w-auto object-contain"
+                    loading="lazy"
                 />
             </div>
             {/* Puma Energy */}
             <div className="relative h-20 w-32 flex items-center justify-center transition-transform duration-300 transform hover:scale-90">
-                <img
+                <Image
                     src="/logos/puma.png"
                     alt="Puma Energy"
+                    width={128}
+                    height={56}
                     className="h-14 w-auto object-contain"
+                    loading="lazy"
                 />
             </div>
             {/* GOIL */}
             <div className="relative h-20 w-32 flex items-center justify-center transition-transform duration-300 transform hover:scale-90">
-                <img
+                <Image
                     src="/logos/goil.png"
                     alt="GOIL"
+                    width={128}
+                    height={56}
                     className="h-14 w-auto object-contain mix-blend-multiply"
+                    loading="lazy"
                 />
             </div>
             {/* Zen Petroleum */}
             <div className="relative h-20 w-32 flex items-center justify-center transition-transform duration-300 transform hover:scale-90">
-                <img
+                <Image
                     src="/logos/zen.png"
                     alt="ZEN Petroleum"
+                    width={128}
+                    height={56}
                     className="h-14 w-auto object-contain"
+                    loading="lazy"
                 />
             </div>
         </>
