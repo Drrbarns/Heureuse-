@@ -20,17 +20,8 @@ export default function Home() {
     return (
         <div className="flex flex-col min-h-screen">
             <Hero />
-
-            {/* TrustBar - Shows after Services on mobile, before Services on desktop */}
-            <div className="order-3 md:order-2">
-                <TrustBar />
-            </div>
-
-            {/* ServicesGrid - Shows before TrustBar on mobile, after TrustBar on desktop */}
-            <div className="order-2 md:order-3">
-                <ServicesGrid />
-            </div>
-
+            <TrustBar />
+            <ServicesGrid />
             <IndustriesGrid />
             <HowItWorks />
 

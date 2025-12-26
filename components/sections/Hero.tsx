@@ -25,20 +25,20 @@ export default function Hero() {
             </div>
 
             <div className="container relative z-10 px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8 animate-in slide-in-from-left duration-700 fade-in flex flex-col items-center lg:items-start">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] text-center lg:text-left">
+                <div className="space-y-8 animate-in slide-in-from-left duration-700 fade-in text-center lg:text-left">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
                         Reliable Energy, <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-heureuse-gold via-heureuse-lightGold to-heureuse-gold">
                             Seamless Delivery.
                         </span>
                     </h1>
 
-                    <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed text-center lg:text-left">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed mx-auto lg:mx-0">
                         We provide bulk fuel supply ensuring your operations never stop.
                         Trusted by OMCs, construction sites, and industries across Ghana for on-time delivery and quality assurance.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto justify-center lg:justify-start">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                         <Button asChild size="xl" variant="cta" className="sm:w-auto w-full shadow-heureuse-gold/20 shadow-lg">
                             <Link href="/request-quote" className="flex items-center justify-center gap-2">
                                 Request a Quote <ArrowRight className="h-5 w-5" />
@@ -52,12 +52,12 @@ export default function Hero() {
                         </Button>
                     </div>
 
-                    <div className="pt-8 border-t border-white/10 grid grid-cols-2 gap-8 text-sm text-gray-400 w-full max-w-md">
-                        <div>
+                    <div className="pt-8 border-t border-white/10 grid grid-cols-2 gap-8 text-sm text-gray-400 max-w-md mx-auto lg:mx-0">
+                        <div className="text-center lg:text-left">
                             <span className="block text-2xl font-bold text-white">99%</span>
                             <span>On-Time Delivery</span>
                         </div>
-                        <div>
+                        <div className="text-center lg:text-left">
                             <span className="block text-2xl font-bold text-white">24/7</span>
                             <span>Support Ready</span>
                         </div>
