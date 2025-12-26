@@ -26,11 +26,6 @@ export default function Hero() {
 
             <div className="container relative z-10 px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8 animate-in slide-in-from-left duration-700 fade-in">
-                    <div className="inline-flex items-center rounded-full border border-heureuse-gold/30 bg-heureuse-gold/10 px-3 py-1 text-xs md:text-sm text-heureuse-gold backdrop-blur-sm">
-                        <span className="flex h-2 w-2 rounded-full bg-heureuse-gold mr-2 animate-pulse"></span>
-                        Leading Bulk Fuel Supplier in Ghana
-                    </div>
-
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
                         Reliable Energy, <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-heureuse-gold via-heureuse-lightGold to-heureuse-gold">
