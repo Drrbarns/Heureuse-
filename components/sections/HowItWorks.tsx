@@ -5,6 +5,7 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { ClipboardList, PhoneCall, Truck, MapPin } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const steps = [
     {
@@ -40,28 +41,35 @@ export default function HowItWorks() {
         offset: ["start center", "end center"],
     });
 
-    const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <Section className="bg-white relative overflow-hidden" id="process">
-            {/* Subtle Texture Pattern */}
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#151E37_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+        <Section className="relative overflow-hidden py-24" id="process">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/truck1.jpg"
+                    alt="Seamless Operations"
+                    fill
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-heureuse-navy/80"></div>
+            </div>
 
             <ScrollAnimation variant="slideUp" className="text-center mb-20 relative z-10">
                 <span className="text-heureuse-gold font-bold tracking-widest text-xs uppercase mb-3 block">Seamless Operations</span>
-                <h2 className="text-3xl md:text-5xl font-bold text-heureuse-navy mb-4">How We Deliver Excellence</h2>
-                <p className="text-muted-foreground max-w-xl mx-auto text-lg pt-2 leading-relaxed">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">How We Deliver Excellence</h2>
+                <p className="text-gray-300 max-w-xl mx-auto text-lg pt-2 leading-relaxed">
                     A streamlined, transparent process designed to keep your business running without interruption.
                 </p>
             </ScrollAnimation>
 
             <div ref={ref} className="grid md:grid-cols-4 gap-8 relative max-w-6xl mx-auto z-10 px-4">
                 {/* Connector Line (Desktop) */}
-                <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-gray-100 z-0">
+                <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-white/10 z-0">
                     <motion.div 
                         style={{ width: lineWidth }}
-                        className="absolute inset-0 bg-gradient-to-r from-heureuse-navy/20 to-heureuse-gold/50 h-full"
+                        className="absolute inset-0 bg-gradient-to-r from-heureuse-gold/20 to-heureuse-gold h-full"
                     ></motion.div>
                 </div>
 
@@ -76,10 +84,10 @@ export default function HowItWorks() {
                                 <motion.div 
                                     whileHover={{ rotate: 360, scale: 1.1 }}
                                     transition={{ duration: 0.8, type: "spring" }}
-                                    className="w-28 h-28 rounded-full bg-white border border-gray-100 flex items-center justify-center shadow-lg group-hover:border-heureuse-gold group-hover:shadow-heureuse-gold/20 transition-all duration-500 relative z-10"
+                                    className="w-28 h-28 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shadow-lg group-hover:border-heureuse-gold group-hover:shadow-heureuse-gold/20 transition-all duration-500 relative z-10 backdrop-blur-sm"
                                 >
-                                    <div className="w-24 h-24 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-heureuse-navy transition-colors duration-500">
-                                        <step.icon className="w-10 h-10 text-heureuse-navy group-hover:text-heureuse-gold transition-colors duration-500" />
+                                    <div className="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-heureuse-gold transition-colors duration-500">
+                                        <step.icon className="w-10 h-10 text-white group-hover:text-heureuse-navy transition-colors duration-500" />
                                     </div>
                                 </motion.div>
                                 {/* Number Badge */}
@@ -87,16 +95,16 @@ export default function HowItWorks() {
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
                                     transition={{ delay: i * 0.2 + 0.5, type: "spring" }}
-                                    className="absolute top-0 right-0 w-8 h-8 rounded-full bg-heureuse-gold border-2 border-white flex items-center justify-center text-xs font-bold text-heureuse-navy shadow-md z-20"
+                                    className="absolute top-0 right-0 w-8 h-8 rounded-full bg-heureuse-gold border-2 border-heureuse-navy flex items-center justify-center text-xs font-bold text-heureuse-navy shadow-md z-20"
                                 >
                                     {step.num}
                                 </motion.div>
                             </div>
 
-                            <h3 className="text-xl font-bold text-heureuse-navy mb-3 group-hover:text-heureuse-gold transition-colors duration-300">
+                            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-heureuse-gold transition-colors duration-300">
                                 {step.title}
                             </h3>
-                            <p className="text-muted-foreground text-sm leading-relaxed px-2">
+                            <p className="text-gray-400 text-sm leading-relaxed px-2">
                                 {step.desc}
                             </p>
                         </motion.div>

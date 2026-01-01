@@ -112,7 +112,7 @@ export default function Hero() {
                     >
                         <div className="relative h-full w-full rounded-xl overflow-hidden opacity-80 shadow-2xl">
                             <Image
-                                src="/tank1.jpg"
+                                src="/2.jpg"
                                 alt="Fuel Tank"
                                 fill
                                 className="object-cover"
