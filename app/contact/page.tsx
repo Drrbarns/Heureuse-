@@ -1,20 +1,49 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { contactSchema } from "@/lib/forms";
 import Section from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
-import { constructMetadata } from "@/lib/seo";
-
-export const metadata = constructMetadata({
-    title: "Contact Us",
-    description: "Get in touch with Heureuse Logistics. Visit our office, call us, or send a message for all your bulk fuel needs.",
-    keywords: ["Contact Heureuse Logistics", "Fuel Supplier Contact", "Accra Fuel Company", "Request Fuel Quote"],
-});
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 export default function ContactPage() {
+    const form = useForm<z.infer<typeof contactSchema>>({
+        resolver: zodResolver(contactSchema),
+    });
+
+    const onSubmit = async (data: z.infer<typeof contactSchema>) => {
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await res.json();
+
+            if (!res.ok) {
+                throw new Error(result.message || 'Failed to send message');
+            }
+
+            toast.success("Message sent successfully! We'll get back to you soon.");
+            form.reset();
+        } catch (error) {
+            console.error('Error sending message:', error);
+            toast.error(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+        }
+    };
+
     return (
         <div>
             <Section background="hero-image" className="pt-32 pb-20">
@@ -80,29 +109,78 @@ export default function ContactPage() {
                     {/* General Inquiry Form */}
                     <div className="bg-muted/30 p-8 rounded-2xl border">
                         <h2 className="text-2xl font-bold text-heureuse-navy mb-6">Send us a Message</h2>
-                        <form className="space-y-4">
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <Label>Name</Label>
-                                    <Input placeholder="Your name" />
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <FormField
+                                        control={form.control}
+                                        name="name"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Name</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Your name" {...field} />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="phone"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Phone</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Your phone number" {...field} />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
                                 </div>
-                                <div className="space-y-2">
-                                    <Label>Phone</Label>
-                                    <Input placeholder="Your phone number" />
-                                </div>
-                            </div>
-                            <div className="space-y-2">
-                                <Label>Email</Label>
-                                <Input type="email" placeholder="email@example.com" />
-                            </div>
-                            <div className="space-y-2">
-                                <Label>Message</Label>
-                                <Textarea className="min-h-[150px]" placeholder="How can we help you?" />
-                            </div>
-                            <Button type="submit" className="w-full text-lg h-12 bg-heureuse-navy hover:bg-heureuse-navy/90">
-                                Send Message
-                            </Button>
-                        </form>
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Email</FormLabel>
+                                            <FormControl>
+                                                <Input type="email" placeholder="email@example.com" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="message"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Message</FormLabel>
+                                            <FormControl>
+                                                <Textarea className="min-h-[150px]" placeholder="How can we help you?" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button 
+                                    type="submit" 
+                                    className="w-full text-lg h-12 bg-heureuse-navy hover:bg-heureuse-navy/90"
+                                    disabled={form.formState.isSubmitting}
+                                >
+                                    {form.formState.isSubmitting ? (
+                                        <>
+                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        "Send Message"
+                                    )}
+                                </Button>
+                            </form>
+                        </Form>
                     </div>
 
                 </div>

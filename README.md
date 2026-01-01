@@ -14,7 +14,7 @@ A premium corporate website for Heureuse Logistics, a Ghana-based bulk fuel supp
     npm run dev
     ```
 
-3.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3.  Open [http://localhost:3005](http://localhost:3005) with your browser to see the result.
 
 ## Project Structure
 

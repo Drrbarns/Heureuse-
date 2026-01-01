@@ -25,11 +25,27 @@ export default function ReferralPage() {
     });
 
     const onSubmit = async (data: z.infer<typeof referralSchema>) => {
-        // Simulate API
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        console.log("Referral:", data);
-        toast.success("Referral submitted! We will contact you.");
-        form.reset();
+        try {
+            const res = await fetch('/api/referral', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await res.json();
+
+            if (!res.ok) {
+                throw new Error(result.message || 'Failed to submit referral');
+            }
+
+            toast.success("Referral submitted! We will contact you.");
+            form.reset();
+        } catch (error) {
+            console.error('Error submitting referral:', error);
+            toast.error(error instanceof Error ? error.message : 'Failed to submit referral. Please try again.');
+        }
     };
 
     const benefits = [

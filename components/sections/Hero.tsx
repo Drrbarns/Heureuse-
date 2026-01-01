@@ -6,7 +6,7 @@ import { ArrowRight, Phone } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-heureuse-navy">
+        <section className="relative min-h-[65vh] md:min-h-[90vh] flex items-center pt-20 overflow-hidden bg-heureuse-navy">
             {/* Background with Gradient/Image Overlay */}
             <div className="absolute inset-0 z-0">
                 {/* Hero Background Image - Optimized with Next.js Image */}
@@ -14,7 +14,7 @@ export default function Hero() {
                     src="/truck1.jpg"
                     alt="Heureuse Logistics Fuel Truck"
                     fill
-                    className="object-cover opacity-100 md:opacity-20 md:mix-blend-overlay"
+                    className="object-cover object-center opacity-100 md:opacity-20 md:mix-blend-overlay"
                     priority
                     quality={75}
                     sizes="100vw"
@@ -26,7 +26,7 @@ export default function Hero() {
 
             <div className="container relative z-10 px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8 animate-in slide-in-from-left duration-700 fade-in text-center lg:text-left">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
                         Reliable Energy, <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-heureuse-gold via-heureuse-lightGold to-heureuse-gold">
                             Seamless Delivery.

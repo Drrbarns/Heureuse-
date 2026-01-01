@@ -66,16 +66,29 @@ export default function RequestQuotePage() {
     const onFinalSubmit = async () => {
         setIsSubmitting(true);
 
-        // Simulate API Call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            const res = await fetch('/api/quote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-        console.log("Submitting:", formData);
-        // TODO: Connect to backend route handler
-        // const res = await fetch('/api/quote', { method: 'POST', body: JSON.stringify(formData) });
+            const data = await res.json();
 
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        toast.success("Quote request submitted successfully!");
+            if (!res.ok) {
+                throw new Error(data.message || 'Failed to submit quote request');
+            }
+
+            setIsSuccess(true);
+            toast.success("Quote request submitted successfully!");
+        } catch (error) {
+            console.error('Error submitting quote:', error);
+            toast.error(error instanceof Error ? error.message : 'Failed to submit quote request. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (

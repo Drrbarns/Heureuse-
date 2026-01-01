@@ -50,3 +50,10 @@ export const referralSchema = z.object({
     notes: z.string().optional(),
     consent: z.boolean().refine((val) => val === true, "You must agree to the terms"),
 });
+
+export const contactSchema = z.object({
+    name: z.string().min(2, "Name is required"),
+    phone: z.string().min(10, "Valid phone number is required"),
+    email: z.string().email("Valid email is required"),
+    message: z.string().min(10, "Message must be at least 10 characters"),
+});
