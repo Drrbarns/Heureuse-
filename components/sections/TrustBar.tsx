@@ -3,6 +3,7 @@
 import Section from "@/components/ui/section";
 import { CheckCircle2, Truck, Clock, Shield } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
+import { motion } from "framer-motion";
 
 const features = [
     {
@@ -29,17 +30,24 @@ const features = [
 
 export default function TrustBar() {
     return (
-        <Section className="py-12 md:py-16 border-b">
+        <Section className="py-12 md:py-16 border-b bg-white relative z-20">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 {features.map((feature, i) => (
                     <ScrollAnimation key={i} delay={i * 0.1} variant="fade">
-                        <div className="flex flex-col items-center text-center space-y-3 hover:-translate-y-1 transition-transform duration-300 px-2">
-                            <div className="p-3 rounded-full bg-heureuse-navy/5 text-heureuse-navy mb-2 hover:bg-heureuse-navy hover:text-white transition-colors">
+                        <motion.div 
+                            whileHover={{ y: -5 }}
+                            className="flex flex-col items-center text-center space-y-3 px-2 group cursor-default"
+                        >
+                            <motion.div 
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                                className="p-3 rounded-full bg-heureuse-navy/5 text-heureuse-navy mb-2 group-hover:bg-heureuse-navy group-hover:text-white transition-colors duration-300"
+                            >
                                 <feature.icon className="h-5 w-5 md:h-6 md:w-6" />
-                            </div>
-                            <h3 className="font-bold text-heureuse-navy text-sm md:text-base">{feature.title}</h3>
+                            </motion.div>
+                            <h3 className="font-bold text-heureuse-navy text-sm md:text-base group-hover:text-heureuse-gold transition-colors duration-300">{feature.title}</h3>
                             <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
-                        </div>
+                        </motion.div>
                     </ScrollAnimation>
                 ))}
             </div>

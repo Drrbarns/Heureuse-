@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import JsonLd from "@/components/seo/JsonLd";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,6 +64,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
+                <ScrollProgress />
                 <JsonLd />
                 <Navbar />
                 <main className="min-h-screen">

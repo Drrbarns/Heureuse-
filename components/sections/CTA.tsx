@@ -6,6 +6,7 @@ import Section from "@/components/ui/section";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
+import { motion } from "framer-motion";
 
 export default function CTA() {
     return (
@@ -19,17 +20,21 @@ export default function CTA() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                    <Button asChild size="xl" variant="cta" className="shadow-lg shadow-heureuse-gold/10 hover:scale-105 transition-transform duration-300">
-                        <Link href="/request-quote" className="flex items-center gap-2">
-                            Request a Quote <ArrowRight className="h-5 w-5" />
-                        </Link>
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button asChild size="xl" variant="cta" className="shadow-lg shadow-heureuse-gold/10 transition-all duration-300">
+                            <Link href="/request-quote" className="flex items-center gap-2">
+                                Request a Quote <ArrowRight className="h-5 w-5" />
+                            </Link>
+                        </Button>
+                    </motion.div>
 
-                    <Button asChild size="xl" variant="outline" className="bg-transparent text-white border-white/20 hover:bg-white/10 hover:text-white hover:scale-105 transition-transform duration-300">
-                        <a href={`https://wa.me/${COMPANY_INFO.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                            <MessageCircle className="h-5 w-5 text-green-400" /> Chat on WhatsApp
-                        </a>
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button asChild size="xl" variant="outline" className="bg-transparent text-white border-white/20 hover:bg-white/10 hover:text-white transition-all duration-300">
+                            <a href={`https://wa.me/${COMPANY_INFO.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                <MessageCircle className="h-5 w-5 text-green-400" /> Chat on WhatsApp
+                            </a>
+                        </Button>
+                    </motion.div>
                 </div>
             </ScrollAnimation>
         </Section>
