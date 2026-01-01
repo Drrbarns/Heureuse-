@@ -64,7 +64,7 @@ export default function HowItWorks() {
                 </p>
             </ScrollAnimation>
 
-            <div ref={ref} className="grid md:grid-cols-4 gap-8 relative max-w-6xl mx-auto z-10 px-4">
+            <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8 relative max-w-6xl mx-auto z-10 px-4">
                 {/* Connector Line (Desktop) */}
                 <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-white/10 z-0">
                     <motion.div 
