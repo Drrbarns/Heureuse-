@@ -20,7 +20,7 @@ const industries = [
     {
         name: "Construction & Infrastructure",
         desc: "Road networks, bridges, and building projects require immense power. We deliver directly to site tanks, reducing downtime for your excavators and trucks.",
-        image: "/7.jpg"
+        image: "/referral-partner.jpg"
     },
     {
         name: "Transport & Fleet Operators",
