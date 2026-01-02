@@ -34,8 +34,8 @@ export default function IndustriesGrid() {
         restDelta: 0.001
     });
 
-    const imageScale = useTransform(smoothProgress, [0, 1], [1, 1.2]); // Increased scale range
-    const imageY = useTransform(smoothProgress, [0, 1], [100, -100]); // Increased movement range
+    const imageScale = useTransform(smoothProgress, [0, 1], [1, 1.05]); // Reduced scale range
+    const imageY = useTransform(smoothProgress, [0, 1], [30, -30]); // Reduced movement range
 
     // Parallax for text content
     const textY = useTransform(smoothProgress, [0, 1], [0, 50]);
@@ -84,8 +84,8 @@ export default function IndustriesGrid() {
                     </ScrollAnimation>
                 </motion.div>
 
-                <div className="relative h-[500px] lg:h-[750px] w-full rounded-2xl overflow-hidden shadow-2xl bg-white/5 border border-white/10 group mt-8 lg:mt-0">
-                    <motion.div style={{ scale: imageScale, y: imageY }} className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform"> {/* Increased height for parallax buffer */}
+                <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl bg-white/5 border border-white/10 group mt-8 lg:mt-0">
+                    <motion.div style={{ scale: imageScale, y: imageY }} className="absolute inset-0 w-full h-[110%] -top-[5%] will-change-transform"> {/* Reduced height for parallax buffer */}
                         <Image
                             src="/tankk.jpg"
                             alt="Industry Operations"
