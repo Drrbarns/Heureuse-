@@ -195,7 +195,7 @@ export default function ContactPage() {
                                 </Button>
                             </form>
                         </Form>
-                    </div>
+                    </motion.div>
 
                 </div>
             </Section>
