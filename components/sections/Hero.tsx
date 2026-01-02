@@ -32,11 +32,22 @@ export default function Hero() {
                 style={{ y: backgroundY }}
             >
                 {/* Hero Background Image - Optimized with Next.js Image */}
+                {/* Desktop Image */}
                 <Image
                     src="/2.jpg"
                     alt="Heureuse Logistics Fuel Truck"
                     fill
-                    className="object-cover opacity-100 md:opacity-20 md:mix-blend-overlay"
+                    className="object-cover opacity-100 md:opacity-20 md:mix-blend-overlay hidden md:block"
+                    priority
+                    quality={75}
+                    sizes="100vw"
+                />
+                {/* Mobile Image */}
+                <Image
+                    src="/first1.jpg"
+                    alt="Heureuse Logistics Fuel Truck"
+                    fill
+                    className="object-cover opacity-100 md:hidden"
                     priority
                     quality={75}
                     sizes="100vw"
