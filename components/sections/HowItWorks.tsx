@@ -35,26 +35,65 @@ const steps = [
 ];
 
 export default function HowItWorks() {
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const gridRef = useRef<HTMLDivElement>(null);
+    
+    const { scrollYProgress: sectionProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    });
+    
+    const { scrollYProgress: gridProgress } = useScroll({
+        target: gridRef,
         offset: ["start center", "end center"],
     });
 
-    const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+    const lineWidth = useTransform(gridProgress, [0, 1], ["0%", "100%"]);
+    const tankY = useTransform(sectionProgress, [0, 1], [100, -100]);
+    const tankkY = useTransform(sectionProgress, [0, 1], [-50, 150]);
+    const bgY = useTransform(sectionProgress, [0, 1], ["0%", "20%"]);
 
     return (
-        <Section className="relative overflow-hidden py-24" id="process">
+        <div ref={sectionRef} className="relative">
             {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src="/truck1.jpg"
-                    alt="Seamless Operations"
-                    fill
-                    className="object-cover"
-                />
-                <div className="absolute inset-0 bg-heureuse-navy/80"></div>
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <motion.div style={{ y: bgY }} className="absolute inset-0 h-[120%] -top-[10%]">
+                    <Image
+                        src="/truck1.jpg"
+                        alt="Seamless Operations"
+                        fill
+                        className="object-cover"
+                    />
+                </motion.div>
+                <div className="absolute inset-0 bg-heureuse-navy/50"></div>
             </div>
+
+            <Section className="relative overflow-hidden py-24 bg-transparent" id="process">
+                {/* Parallax Floating Element - Right Side */}
+                <motion.div 
+                    style={{ y: tankY }}
+                    className="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-10 z-0 pointer-events-none hidden lg:block"
+                >
+                <Image
+                    src="/tank1.jpg"
+                    alt="Fuel Tank Abstract"
+                    fill
+                    className="object-cover rounded-full blur-sm grayscale"
+                />
+            </motion.div>
+
+            {/* Parallax Floating Element - Left Side */}
+            <motion.div 
+                style={{ y: tankkY }}
+                className="absolute -top-32 -left-32 w-[400px] h-[400px] opacity-15 z-0 pointer-events-none hidden lg:block"
+            >
+                <Image
+                    src="/tankk.jpg"
+                    alt="Fuel Tank Abstract"
+                    fill
+                    className="object-cover rounded-full blur-sm grayscale"
+                />
+            </motion.div>
 
             <ScrollAnimation variant="slideUp" className="text-center mb-20 relative z-10">
                 <span className="text-heureuse-gold font-bold tracking-widest text-xs uppercase mb-3 block">Seamless Operations</span>
@@ -64,7 +103,7 @@ export default function HowItWorks() {
                 </p>
             </ScrollAnimation>
 
-            <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8 relative max-w-6xl mx-auto z-10 px-4">
+            <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-8 relative max-w-6xl mx-auto z-10 px-4">
                 {/* Connector Line (Desktop) */}
                 <div className="hidden md:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-white/10 z-0">
                     <motion.div 
@@ -112,5 +151,6 @@ export default function HowItWorks() {
                 ))}
             </div>
         </Section>
+        </div>
     );
 }

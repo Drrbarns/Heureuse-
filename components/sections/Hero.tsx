@@ -50,7 +50,7 @@ export default function Hero() {
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
                         Reliable Energy, <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-heureuse-gold via-heureuse-lightGold to-heureuse-gold">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-heureuse-gold via-white to-heureuse-gold bg-[length:200%_auto] animate-shine">
                             Seamless Delivery.
                         </span>
                     </h1>
@@ -79,12 +79,12 @@ export default function Hero() {
                     </div>
 
                     <div className="pt-8 border-t border-white/10 grid grid-cols-2 gap-8 text-sm text-gray-400 max-w-md mx-auto lg:mx-0">
-                        <div className="text-center lg:text-left">
-                            <span className="block text-2xl font-bold text-white">99%</span>
+                        <div className="text-center lg:text-left group">
+                            <span className="block text-2xl font-bold text-white group-hover:text-heureuse-gold transition-colors duration-300">99%</span>
                             <span>On-Time Delivery</span>
                         </div>
-                        <div className="text-center lg:text-left">
-                            <span className="block text-2xl font-bold text-white">24/7</span>
+                        <div className="text-center lg:text-left group">
+                            <span className="block text-2xl font-bold text-white group-hover:text-heureuse-gold transition-colors duration-300">24/7</span>
                             <span>Support Ready</span>
                         </div>
                     </div>

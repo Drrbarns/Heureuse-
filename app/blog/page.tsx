@@ -4,6 +4,7 @@ import Section from "@/components/ui/section";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { constructMetadata } from "@/lib/seo";
+import { getAllPosts } from "@/lib/blog-content";
 
 export const metadata = constructMetadata({
     title: "Fuel Logistics Blog | Industry Insights",
@@ -11,59 +12,9 @@ export const metadata = constructMetadata({
     keywords: ["Fuel Logistics Blog", "Ghana Oil Industry News", "Diesel Price Trends", "Bulk Fuel Tips", "Logistics Insights"],
 });
 
-// Blog posts data (Using placeholders for now as per requirements)
-const posts = [
-    {
-        slug: "how-to-choose-reliable-bulk-fuel-supplier",
-        title: "How to Choose a Reliable Bulk Fuel Supplier in Ghana",
-        excerpt: "Discover the key factors to consider when selecting a fuel partner to ensure quality and timely delivery for your business.",
-        date: "Dec 12, 2024",
-        category: "Guide",
-        image: "/blog/fuel-supplier-guide.png"
-    },
-    {
-        slug: "reducing-downtime-fuel-logistics-construction",
-        title: "Reducing Downtime: Fuel Logistics for Construction Sites",
-        excerpt: "Learn how strategic fuel management can keep your heavy machinery running and prevent costly project delays.",
-        date: "Dec 05, 2024",
-        category: "Industry",
-        image: "/blog/construction-fuel.png"
-    },
-    {
-        slug: "omc-supply-corporate-buyers",
-        title: "OMC Supply: What Corporate Buyers Look For",
-        excerpt: "Insights into the demands of Oil Marketing Companies and how Heureuse Logistics meets these critical needs.",
-        date: "Nov 28, 2024",
-        category: "Corporate",
-        image: "/blog/omc-corporate.png"
-    },
-    {
-        slug: "fleet-operations-fuel-management",
-        title: "Fleet Operations: Managing Fuel Supply at Scale",
-        excerpt: "Best practices for transport companies to monitor consumption, prevent theft, and optimize fuel costs.",
-        date: "Nov 15, 2024",
-        category: "Logistics",
-        image: "/blog/fleet-management.png"
-    },
-    {
-        slug: "safety-compliance-bulk-fuel",
-        title: "Safety & Compliance in Bulk Fuel Delivery",
-        excerpt: "Understanding the NPA regulations and safety protocols that professional fuel suppliers must adhere to.",
-        date: "Nov 02, 2024",
-        category: "Safety",
-        image: "/blog/safety-compliance.png"
-    },
-    {
-        slug: "bulk-fuel-contracts-key-terms",
-        title: "Understanding Bulk Fuel Contracts: Key Terms",
-        excerpt: "A breakdown of common terms in fuel supply agreements to help you negotiate better deals.",
-        date: "Oct 20, 2024",
-        category: "Education",
-        image: "/blog/contract-terms.png"
-    },
-];
+export default async function BlogPage() {
+    const posts = await getAllPosts();
 
-export default function BlogPage() {
     return (
         <div>
             <Section background="hero-image" className="pt-32 pb-20">
