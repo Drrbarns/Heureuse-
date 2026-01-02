@@ -84,13 +84,14 @@ export default function IndustriesGrid() {
                     </ScrollAnimation>
                 </motion.div>
 
-                <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl bg-black/20 border border-white/10 group mt-8 lg:mt-0">
-                    <motion.div style={{ scale: imageScale, y: imageY }} className="absolute inset-0 w-full h-[110%] -top-[5%] will-change-transform flex items-center justify-center"> {/* Reduced height for parallax buffer */}
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group mt-8 lg:mt-0">
+                    <motion.div style={{ y: imageY }} className="will-change-transform">
                         <Image
                             src="/tankk.jpg"
                             alt="Industry Operations"
-                            fill
-                            className="object-contain"
+                            width={1200}
+                            height={900}
+                            className="w-full h-auto object-cover"
                             sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </motion.div>
