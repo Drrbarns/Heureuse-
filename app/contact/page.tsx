@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
     const form = useForm<z.infer<typeof contactSchema>>({
@@ -48,10 +49,22 @@ export default function ContactPage() {
         <div>
             <Section background="hero-image" className="pt-32 pb-20">
                 <div className="max-w-4xl mx-auto text-center text-white">
-                    <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
-                    <p className="text-xl text-gray-300">
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-4xl md:text-5xl font-bold mb-4"
+                    >
+                        Get in Touch
+                    </motion.h1>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="text-lg md:text-xl text-gray-300"
+                    >
                         Have a question or need a custom quote? We are here to help.
-                    </p>
+                    </motion.p>
                 </div>
             </Section>
 
@@ -59,7 +72,13 @@ export default function ContactPage() {
                 <div className="grid lg:grid-cols-2 gap-12">
 
                     {/* Contact Info */}
-                    <div className="space-y-8">
+                    <motion.div 
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="space-y-8"
+                    >
                         <div className="prose prose-lg">
                             <h2 className="text-3xl font-bold text-heureuse-navy">Contact Information</h2>
                             <p className="text-muted-foreground">
@@ -68,47 +87,42 @@ export default function ContactPage() {
                         </div>
 
                         <div className="space-y-6">
-                            <Card>
-                                <CardContent className="flex items-center gap-4 p-6">
-                                    <div className="w-12 h-12 rounded-full bg-heureuse-navy/5 flex items-center justify-center text-heureuse-navy">
-                                        <Phone className="h-6 w-6" />
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold">Phone</div>
-                                        <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`} className="text-muted-foreground hover:text-heureuse-navy">{COMPANY_INFO.phone}</a>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            <Card>
-                                <CardContent className="flex items-center gap-4 p-6">
-                                    <div className="w-12 h-12 rounded-full bg-heureuse-navy/5 flex items-center justify-center text-heureuse-navy">
-                                        <Mail className="h-6 w-6" />
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold">Email</div>
-                                        <a href={`mailto:${COMPANY_INFO.email}`} className="text-muted-foreground hover:text-heureuse-navy">{COMPANY_INFO.email}</a>
-                                    </div>
-                                </CardContent>
-                            </Card>
-
-                            <Card>
-                                <CardContent className="flex items-center gap-4 p-6">
-                                    <div className="w-12 h-12 rounded-full bg-heureuse-navy/5 flex items-center justify-center text-heureuse-navy">
-                                        <MapPin className="h-6 w-6" />
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold">Office Address</div>
-                                        <p className="text-muted-foreground">{COMPANY_INFO.address}</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                            {[
+                                { icon: Phone, label: "Phone", value: COMPANY_INFO.phone, href: `tel:${COMPANY_INFO.phone.replace(/\s/g, '')}` },
+                                { icon: Mail, label: "Email", value: COMPANY_INFO.email, href: `mailto:${COMPANY_INFO.email}` },
+                                { icon: MapPin, label: "Office Address", value: COMPANY_INFO.address, href: null }
+                            ].map((item, index) => (
+                                <motion.div key={index} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+                                    <Card className="border-l-4 border-l-heureuse-navy hover:border-l-heureuse-gold transition-colors">
+                                        <CardContent className="flex items-center gap-4 p-6">
+                                            <div className="w-12 h-12 rounded-full bg-heureuse-navy/5 flex items-center justify-center text-heureuse-navy group-hover:bg-heureuse-gold/10 transition-colors">
+                                                <item.icon className="h-6 w-6" />
+                                            </div>
+                                            <div>
+                                                <div className="font-semibold">{item.label}</div>
+                                                {item.href ? (
+                                                    <a href={item.href} className="text-muted-foreground hover:text-heureuse-navy transition-colors">{item.value}</a>
+                                                ) : (
+                                                    <p className="text-muted-foreground">{item.value}</p>
+                                                )}
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* General Inquiry Form */}
-                    <div className="bg-muted/30 p-8 rounded-2xl border">
-                        <h2 className="text-2xl font-bold text-heureuse-navy mb-6">Send us a Message</h2>
+                    <motion.div 
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-white p-6 md:p-8 rounded-2xl border shadow-lg relative overflow-hidden"
+                    >
+                         <div className="absolute top-0 right-0 w-32 h-32 bg-heureuse-gold/10 rounded-bl-full -mr-16 -mt-16 pointer-events-none"></div>
+                        <h2 className="text-2xl font-bold text-heureuse-navy mb-6 relative z-10">Send us a Message</h2>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                                 <div className="grid md:grid-cols-2 gap-4">

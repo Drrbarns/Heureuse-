@@ -62,8 +62,8 @@ export default function ServicesPage() {
     return (
         <div className="overflow-hidden">
             {/* Immersive Parallax Hero */}
-            <div ref={heroRef} className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-                <motion.div style={{ y: bgY }} className="absolute inset-0 z-0">
+            <div ref={heroRef} className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+                <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 will-change-transform">
                     <Image
                         src="/tank1.jpg"
                         alt="Services Hero"
@@ -76,13 +76,13 @@ export default function ServicesPage() {
                 </motion.div>
                 
                 <div className="container relative z-10 px-4 text-center">
-                    <motion.div style={{ y: textY }} className="max-w-4xl mx-auto">
+                    <motion.div style={{ y: textY }} className="max-w-4xl mx-auto will-change-transform">
                         <ScrollAnimation variant="slideUp">
-                            <span className="text-heureuse-gold font-bold tracking-widest text-sm uppercase mb-4 block">Our Solutions</span>
-                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                            <span className="text-heureuse-gold font-bold tracking-widest text-xs md:text-sm uppercase mb-3 md:mb-4 block">Our Solutions</span>
+                            <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
                                 Fueling Your Business <br/> Without Interruption
                             </h1>
-                            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
                                 End-to-end bulk fuel supply and logistics solutions designed for reliability, efficiency, and peace of mind.
                             </p>
                         </ScrollAnimation>
