@@ -3,7 +3,7 @@
 import Section from "@/components/ui/section";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { ClipboardList, PhoneCall, Truck, MapPin } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -43,21 +43,27 @@ export default function HowItWorks() {
         offset: ["start end", "end start"],
     });
     
+    const smoothSectionProgress = useSpring(sectionProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
     const { scrollYProgress: gridProgress } = useScroll({
         target: gridRef,
         offset: ["start center", "end center"],
     });
 
     const lineWidth = useTransform(gridProgress, [0, 1], ["0%", "100%"]);
-    const tankY = useTransform(sectionProgress, [0, 1], [100, -100]);
-    const tankkY = useTransform(sectionProgress, [0, 1], [-50, 150]);
-    const bgY = useTransform(sectionProgress, [0, 1], ["0%", "20%"]);
+    const tankY = useTransform(smoothSectionProgress, [0, 1], [100, -100]);
+    const tankkY = useTransform(smoothSectionProgress, [0, 1], [-50, 150]);
+    const bgY = useTransform(smoothSectionProgress, [0, 1], ["0%", "20%"]);
 
     return (
         <div ref={sectionRef} className="relative">
             {/* Background Image */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-                <motion.div style={{ y: bgY }} className="absolute inset-0 h-[120%] -top-[10%]">
+                <motion.div style={{ y: bgY }} className="absolute inset-0 h-[120%] -top-[10%] will-change-transform">
                     <Image
                         src="/truck1.jpg"
                         alt="Seamless Operations"
@@ -72,7 +78,7 @@ export default function HowItWorks() {
                 {/* Parallax Floating Element - Right Side */}
                 <motion.div 
                     style={{ y: tankY }}
-                    className="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-10 z-0 pointer-events-none hidden lg:block"
+                    className="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-10 z-0 pointer-events-none hidden lg:block will-change-transform"
                 >
                 <Image
                     src="/tank1.jpg"
@@ -85,7 +91,7 @@ export default function HowItWorks() {
             {/* Parallax Floating Element - Left Side */}
             <motion.div 
                 style={{ y: tankkY }}
-                className="absolute -top-32 -left-32 w-[400px] h-[400px] opacity-15 z-0 pointer-events-none hidden lg:block"
+                className="absolute -top-32 -left-32 w-[400px] h-[400px] opacity-15 z-0 pointer-events-none hidden lg:block will-change-transform"
             >
                 <Image
                     src="/tankk.jpg"

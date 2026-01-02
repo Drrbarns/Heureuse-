@@ -5,7 +5,7 @@ import Image from "next/image";
 import Section from "@/components/ui/section";
 import { Building2, Tractor, Truck, School, Zap } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 const industries = [
@@ -28,19 +28,25 @@ export default function IndustriesGrid() {
         offset: ["start end", "end start"],
     });
 
-    const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]); // Increased scale range
-    const imageY = useTransform(scrollYProgress, [0, 1], [100, -100]); // Increased movement range
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const imageScale = useTransform(smoothProgress, [0, 1], [1, 1.2]); // Increased scale range
+    const imageY = useTransform(smoothProgress, [0, 1], [100, -100]); // Increased movement range
 
     // Parallax for text content
-    const textY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+    const textY = useTransform(smoothProgress, [0, 1], [0, 50]);
     
     // Parallax for the small grid items
-    const gridY = useTransform(scrollYProgress, [0, 1], [0, -30]);
+    const gridY = useTransform(smoothProgress, [0, 1], [0, -30]);
 
     return (
         <Section background="navy" className="overflow-hidden"> {/* Added overflow-hidden to contain parallax */}
             <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
-                <motion.div style={{ y: textY }} className="relative z-10"> {/* Wrapped in motion.div for text parallax */}
+                <motion.div style={{ y: textY }} className="relative z-10 will-change-transform"> {/* Wrapped in motion.div for text parallax */}
                     <ScrollAnimation variant="slideRight">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
                             Powering Key Industries Across Ghana
@@ -49,7 +55,7 @@ export default function IndustriesGrid() {
                             From the bustling city centers to remote project sites, Heureuse Logistics understands the critical need for uninterrupted power. We specialize in serving sectors where downtime is not an option.
                         </p>
 
-                        <motion.div style={{ y: gridY }} className="grid sm:grid-cols-2 gap-4"> {/* Added parallax to grid */}
+                        <motion.div style={{ y: gridY }} className="grid sm:grid-cols-2 gap-4 will-change-transform"> {/* Added parallax to grid */}
                             {industries.map((ind, i) => (
                                 <motion.div 
                                     key={i} 
@@ -79,7 +85,7 @@ export default function IndustriesGrid() {
                 </motion.div>
 
                 <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl bg-white/5 border border-white/10 group mt-8 lg:mt-0">
-                    <motion.div style={{ scale: imageScale, y: imageY }} className="absolute inset-0 w-full h-[120%] -top-[10%]"> {/* Increased height for parallax buffer */}
+                    <motion.div style={{ scale: imageScale, y: imageY }} className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform"> {/* Increased height for parallax buffer */}
                         <Image
                             src="/tankk.jpg"
                             alt="Industry Operations"

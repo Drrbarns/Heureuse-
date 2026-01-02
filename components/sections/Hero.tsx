@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { COMPANY_INFO } from "@/lib/constants";
 import { ArrowRight, Phone } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 export default function Hero() {
@@ -15,14 +15,20 @@ export default function Hero() {
         offset: ["start start", "end start"],
     });
 
-    const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "30%"]); // Reduced range for smoother feel
+    const textY = useTransform(smoothProgress, [0, 1], ["0%", "40%"]);
 
     return (
         <section ref={ref} className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-heureuse-navy">
             {/* Background with Gradient/Image Overlay */}
             <motion.div 
-                className="absolute inset-0 z-0"
+                className="absolute inset-0 z-0 will-change-transform" // Added will-change hint
                 style={{ y: backgroundY }}
             >
                 {/* Hero Background Image - Optimized with Next.js Image */}
