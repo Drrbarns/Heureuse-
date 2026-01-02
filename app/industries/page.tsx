@@ -15,32 +15,32 @@ const industries = [
     {
         name: "Oil Marketing Companies (OMCs)",
         desc: "We serve as a reliable supply partner for OMCs, bridging the gap between BDCs and retail stations. Our efficient logistics ensure you never run dry.",
-        image: "/images/industries/omc-station.png"
+        image: "/1.jpg"
     },
     {
         name: "Construction & Infrastructure",
         desc: "Road networks, bridges, and building projects require immense power. We deliver directly to site tanks, reducing downtime for your excavators and trucks.",
-        image: "/images/industries/construction-site.png"
+        image: "/6.jpg"
     },
     {
         name: "Transport & Fleet Operators",
         desc: "For logistics companies, fuel is the biggest cost. Our bulk supply contracts help you manage price and ensure quality, protecting your engines.",
-        image: "/7.jpg"
+        image: "/truck1.jpg"
     },
     {
         name: "Manufacturing & Industrial",
         desc: "Backup generators and industrial boilers need steady fuel. We provide scheduled top-ups to ensure your production lines keep moving.",
-        image: "/images/industries/manufacturing-factory.png"
+        image: "/3.jpg"
     },
     {
         name: "Mining & Quarrying",
         desc: "Operating in remote and rugged terrains? Our fleet is equipped to reach your site safely and discharge according to strict safety protocols.",
-        image: "/images/industries/mining-quarry.png"
+        image: "/4.jpg"
     },
     {
         name: "Institutions (Schools, Hospitals, Hotels)",
         desc: "Reliable power is non-negotiable for hospitals and hotels. We offer priority emergency delivery services for institutional clients.",
-        image: "/6.jpg"
+        image: "/5.jpg"
     }
 ];
 
