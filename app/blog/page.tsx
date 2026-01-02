@@ -31,11 +31,10 @@ export default async function BlogPage() {
                     {posts.map((post) => (
                         <Card key={post.slug} className="flex flex-col h-full hover:shadow-lg transition-all cursor-pointer group">
                             <Link href={`/blog/${post.slug}`} className="contents">
-                                {/* Image placeholder */}
                                 {/* Image container */}
                                 <div className="h-48 bg-gray-100 w-full relative overflow-hidden rounded-t-lg">
                                     <Image
-                                        src={post.image}
+                                        src={post.image || "/tank1.jpg"}
                                         alt={post.title}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-500"
