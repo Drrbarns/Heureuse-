@@ -47,7 +47,7 @@ export default function Hero() {
                     src="/first1.jpg"
                     alt="Heureuse Logistics Fuel Truck"
                     fill
-                    className="object-contain md:hidden opacity-100"
+                    className="object-cover opacity-100 md:hidden"
                     priority
                     quality={75}
                     sizes="100vw"

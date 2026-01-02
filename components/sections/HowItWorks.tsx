@@ -65,7 +65,7 @@ export default function HowItWorks() {
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <motion.div style={{ y: bgY }} className="absolute inset-0 h-[120%] -top-[10%] will-change-transform">
                     <Image
-                        src="/truck1.jpg"
+                        src="/first.jpg"
                         alt="Seamless Operations"
                         fill
                         className="object-cover"
