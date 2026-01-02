@@ -63,7 +63,7 @@ export default function HowItWorks() {
         <div ref={sectionRef} className="relative">
             {/* Background Image */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-                <motion.div style={{ y: bgY }} className="absolute inset-0 h-[120%] -top-[10%] will-change-transform">
+                <motion.div style={{ y: bgY }} className="absolute inset-0 h-[110%] -top-[5%] will-change-transform">
                     <Image
                         src="/first.jpg"
                         alt="Seamless Operations"
