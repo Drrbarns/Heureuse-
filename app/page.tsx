@@ -26,7 +26,7 @@ export default function Home() {
             <HowItWorks />
 
             {/* Partner Logos */}
-            <PartnerLogos />
+            {/* <PartnerLogos /> */}
 
             {/* FAQ Preview */}
             <Section>
