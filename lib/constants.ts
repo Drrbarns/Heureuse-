@@ -1,10 +1,10 @@
 export const COMPANY_INFO = {
     name: "Heureuse Logistics",
     tagline: "Reliable Energy, Seamless Delivery",
-    phone: "+233 24 371 0010",
+    phone: "+233 53 886 6415",
     email: "info@heureuselogistics.com",
     address: "123 Independence Avenue, Accra, Ghana",
-    whatsapp: "233243710010", // Format for link
+    whatsapp: "233538866415", // Format for link
     website: "https://heureuselogistics.com",
     social: {
         linkedin: "https://linkedin.com/company/heureuse-logistics",

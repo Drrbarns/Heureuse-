@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { COMPANY_INFO } from "@/lib/constants";
 import { quoteStep1Schema, quoteStep2Schema, quoteStep3Schema, fuelTypes, companyTypes, frequencies } from "@/lib/forms";
 import Section from "@/components/ui/section";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -122,7 +123,7 @@ export default function RequestQuotePage() {
                                     <a href="/">Back to Home</a>
                                 </Button>
                                 <Button asChild className="bg-green-600 hover:bg-green-700 w-full sm:w-auto">
-                                    <a href={`https://wa.me/233243710010?text=Hi, received my quote request? Ref: ${formData.companyName}`} target="_blank">Chat on WhatsApp</a>
+                                    <a href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hi, received my quote request? Ref: ${formData.companyName}`} target="_blank">Chat on WhatsApp</a>
                                 </Button>
                             </div>
                         </Card>
