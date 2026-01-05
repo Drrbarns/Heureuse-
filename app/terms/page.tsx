@@ -3,8 +3,9 @@ import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
     title: "Terms and Conditions",
-    description: "Terms and Conditions for using Heureuse Logistics services and website.",
-    keywords: ["Terms and Conditions", "Fuel Supply Agreement", "Legal Terms"],
+    description: "Terms and Conditions for using Heureuse Logistics services and website. Read our fuel supply agreement terms.",
+    keywords: ["Terms and Conditions", "Fuel Supply Agreement", "Legal Terms", "Heureuse Logistics Terms"],
+    canonical: "/terms",
 });
 
 export default function TermsPage() {

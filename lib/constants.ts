@@ -5,7 +5,7 @@ export const COMPANY_INFO = {
     email: "info@heureuselogistics.com",
     address: "123 Independence Avenue, Accra, Ghana",
     whatsapp: "233538866415", // Format for link
-    website: "https://heureuselogistics.com",
+    website: "https://heureusesupply.com",
     social: {
         linkedin: "https://linkedin.com/company/heureuse-logistics",
         facebook: "https://facebook.com/heureuse",

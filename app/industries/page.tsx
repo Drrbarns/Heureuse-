@@ -4,11 +4,22 @@ import Section from "@/components/ui/section";
 import CTA from "@/components/sections/CTA";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { constructMetadata } from "@/lib/seo";
+import { SchemaBreadcrumb } from "@/components/seo";
+import { COMPANY_INFO } from "@/lib/constants";
 
 export const metadata = constructMetadata({
-    title: "Industries Served",
-    description: "Serving OMCs, Construction, Mining, Transport, and Corporate institutions with reliable bulk fuel supply in Ghana.",
-    keywords: ["OMC Supply", "Construction Fuel", "Mining Fuel", "Transport Fleet Fuel", "Institutional Fuel"],
+    title: "Industries We Serve | OMCs, Construction, Mining & More",
+    description: "Serving OMCs, Construction, Mining, Transport, and Corporate institutions with reliable bulk fuel supply in Ghana. Tailored solutions for every industry.",
+    keywords: [
+        "OMC Fuel Supply Ghana",
+        "Construction Site Diesel",
+        "Mining Fuel Supply",
+        "Transport Fleet Fuel",
+        "Industrial Fuel Ghana",
+        "Hospital Generator Fuel",
+        "Hotel Fuel Supply"
+    ],
+    canonical: "/industries",
 });
 
 const industries = [
@@ -46,43 +57,49 @@ const industries = [
 
 export default function IndustriesPage() {
     return (
-        <div>
-            <Section background="hero-image" className="pt-32 pb-20">
-                <div className="max-w-4xl mx-auto text-center text-white">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Industries We Serve</h1>
-                    <p className="text-xl text-gray-300">
-                        Tailored fuel solutions for the backbone of Ghana's economy.
-                    </p>
-                </div>
-            </Section>
+        <>
+            <SchemaBreadcrumb items={[
+                { name: "Home", url: COMPANY_INFO.website },
+                { name: "Industries", url: `${COMPANY_INFO.website}/industries` }
+            ]} />
+            <div>
+                <Section background="hero-image" className="pt-32 pb-20">
+                    <div className="max-w-4xl mx-auto text-center text-white">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">Industries We Serve</h1>
+                        <p className="text-xl text-gray-300">
+                            Tailored fuel solutions for the backbone of Ghana's economy.
+                        </p>
+                    </div>
+                </Section>
 
-            <Section>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {industries.map((ind, i) => (
-                        <Card key={i} className="hover:shadow-lg transition-shadow border-t-4 border-t-heureuse-gold overflow-hidden group">
-                            <div className="relative h-48 w-full overflow-hidden">
-                                <Image
-                                    src={ind.image}
-                                    alt={ind.name}
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <CardHeader>
-                                <CardTitle className="text-xl text-heureuse-navy">{ind.name}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground leading-relaxed">
-                                    {ind.desc}
-                                </p>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </Section>
+                <Section>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {industries.map((ind, i) => (
+                            <Card key={i} className="hover:shadow-lg transition-shadow border-t-4 border-t-heureuse-gold overflow-hidden group">
+                                <div className="relative h-48 w-full overflow-hidden">
+                                    <Image
+                                        src={ind.image}
+                                        alt={ind.name}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                </div>
+                                <CardHeader>
+                                    <CardTitle className="text-xl text-heureuse-navy">{ind.name}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {ind.desc}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </Section>
 
 
-            <CTA />
-        </div>
+                <CTA />
+            </div>
+        </>
     );
 }

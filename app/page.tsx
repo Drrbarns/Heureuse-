@@ -10,15 +10,53 @@ import Link from "next/link";
 import { constructMetadata } from "@/lib/seo";
 import PartnerLogos from "@/components/sections/PartnerLogos";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
+import { SchemaLocalBusiness, SchemaHowTo } from "@/components/seo";
 
 export const metadata = constructMetadata({
-    title: "Reliable Bulk Fuel Supply in Ghana",
-    description: "Heureuse Logistics provides seamless bulk diesel and petrol supply for OMCs, construction, and corporate fleets in Ghana. Request a quote today.",
+    title: "Reliable Bulk Fuel Supply in Ghana | Diesel & Petrol Delivery",
+    description: "Heureuse Logistics provides seamless bulk diesel (AGO) and petrol (PMS) supply for OMCs, construction sites, mining operations, and corporate fleets in Ghana. Request a quote today.",
+    keywords: [
+        "Bulk Fuel Supply Ghana",
+        "Diesel Supply Accra",
+        "AGO Supplier Ghana",
+        "PMS Bulk Supply",
+        "Fuel Logistics Ghana",
+        "OMC Supply Partner",
+        "Construction Site Fuel",
+        "Mining Fuel Delivery Ghana"
+    ],
+    canonical: "/",
 });
 
 export default function Home() {
     return (
         <div className="flex flex-col min-h-screen">
+            <SchemaLocalBusiness
+                geo={{ latitude: 5.6037, longitude: -0.1870 }}
+            />
+            <SchemaHowTo
+                name="How to Order Bulk Fuel from Heureuse Logistics"
+                description="Step-by-step guide to ordering bulk fuel supply for your business in Ghana"
+                steps={[
+                    {
+                        name: "Request",
+                        text: "Submit your bulk fuel order via our online form or WhatsApp. Provide your company details, fuel type, volume, and delivery location.",
+                    },
+                    {
+                        name: "Confirm",
+                        text: "We verify stock availability, confirm pricing, and discuss delivery timeline with you instantly.",
+                    },
+                    {
+                        name: "Dispatch",
+                        text: "Fuel is loaded from our certified BDC sources and our GPS-tracked tankers are dispatched to your location.",
+                    },
+                    {
+                        name: "Deliver",
+                        text: "Safe discharge at your site with quantity and quality verification. You receive all documentation including waybills and CoA if requested.",
+                    },
+                ]}
+                totalTime="PT24H"
+            />
             <Hero />
             <TrustBar />
             <ServicesGrid />

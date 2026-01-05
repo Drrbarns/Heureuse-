@@ -1,7 +1,32 @@
-
 import { COMPANY_INFO } from "@/lib/constants";
+import { ReactNode } from "react";
 
-export default function JsonLd() {
+interface JsonLdProps {
+    schemas?: Array<Record<string, any>>;
+    children?: ReactNode;
+}
+
+/**
+ * Enhanced JsonLd component that supports multiple schema types
+ * Can be used to render multiple schemas or a single schema
+ */
+export default function JsonLd({ schemas, children }: JsonLdProps) {
+    // If schemas prop is provided, render those
+    if (schemas && schemas.length > 0) {
+        return (
+            <>
+                {schemas.map((schema, index) => (
+                    <script
+                        key={index}
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+                    />
+                ))}
+            </>
+        );
+    }
+
+    // Default: render Organization schema (backward compatibility)
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -29,9 +54,12 @@ export default function JsonLd() {
     };
 
     return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            {children}
+        </>
     );
 }

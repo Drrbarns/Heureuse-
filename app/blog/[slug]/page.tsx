@@ -7,6 +7,10 @@ import Image from "next/image";
 import { ArrowLeft, Calendar, Facebook, Linkedin, Twitter } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
+import { extractWordCount, calculateReadingTime, formatSchemaDate, generateBreadcrumbs } from "@/lib/schema-utils";
+import { COMPANY_INFO } from "@/lib/constants";
+import { SchemaArticle, SchemaBreadcrumb } from "@/components/seo";
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -27,17 +31,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: "Post Not Found"
         }
     }
-    return {
-        title: `${post.title} | Blog`,
+
+    const wordCount = extractWordCount(post.content);
+    const readingTime = calculateReadingTime(wordCount);
+    const imageUrl = post.image ? `${COMPANY_INFO.website}${post.image}` : `${COMPANY_INFO.website}/og-image.png`;
+
+    return constructMetadata({
+        title: post.title,
         description: post.excerpt,
-    };
+        image: imageUrl,
+        type: "article",
+        publishedTime: formatSchemaDate(post.date),
+        modifiedTime: formatSchemaDate(post.date),
+        section: post.category,
+        tags: [post.category, "Fuel Logistics", "Bulk Fuel", "Ghana"],
+        canonical: `/blog/${slug}`,
+        keywords: [
+            post.category,
+            "Fuel Logistics",
+            "Bulk Fuel Supply",
+            "Ghana Fuel Industry",
+            post.title
+        ],
+    });
 }
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
     const post = await getPostBySlug(slug);
     const allPosts = await getAllPosts();
-    
+
     // Simple related posts logic (same category or just next 2)
     const relatedPosts = allPosts
         .filter(p => p.slug !== slug && p.category === post?.category)
@@ -47,8 +70,24 @@ export default async function BlogPostPage({ params }: Props) {
         notFound();
     }
 
+    const wordCount = extractWordCount(post.content);
+    const readingTime = calculateReadingTime(wordCount);
+    const breadcrumbs = generateBreadcrumbs(`/blog/${slug}`);
+
     return (
         <div className="bg-white">
+            <SchemaBreadcrumb items={breadcrumbs} />
+            <SchemaArticle
+                headline={post.title}
+                description={post.excerpt}
+                image={post.image}
+                datePublished={formatSchemaDate(post.date)}
+                dateModified={formatSchemaDate(post.date)}
+                articleSection={post.category}
+                keywords={[post.category, "Fuel Logistics", "Bulk Fuel", "Ghana"]}
+                articleBody={post.content}
+                wordCount={wordCount}
+            />
             {/* Hero Header with Parallax Image */}
             <div className="relative h-[60vh] min-h-[500px] flex items-end pb-20 overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -71,7 +110,7 @@ export default async function BlogPostPage({ params }: Props) {
                         <Link href="/blog" className="inline-flex items-center text-sm text-gray-300 hover:text-heureuse-gold mb-6 transition-colors font-medium tracking-wide">
                             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
                         </Link>
-                        
+
                         <div className="space-y-4 animate-in slide-in-from-bottom-10 fade-in duration-700">
                             <Badge className="bg-heureuse-gold hover:bg-heureuse-lightGold text-heureuse-navy font-bold px-3 py-1 rounded-full text-sm border-none">
                                 {post.category}
@@ -85,7 +124,7 @@ export default async function BlogPostPage({ params }: Props) {
                                     <span>Heureuse Editorial</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Calendar className="h-4 w-4 text-heureuse-gold" /> 
+                                    <Calendar className="h-4 w-4 text-heureuse-gold" />
                                     <span>{post.date}</span>
                                 </div>
                             </div>
@@ -102,8 +141,8 @@ export default async function BlogPostPage({ params }: Props) {
                         prose-a:text-heureuse-gold prose-a:no-underline hover:prose-a:underline
                         prose-strong:text-heureuse-navy prose-blockquote:border-l-heureuse-gold prose-blockquote:bg-gray-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg
                         prose-img:rounded-xl prose-img:shadow-lg
-                        first-letter:text-5xl first-letter:font-bold first-letter:text-heureuse-gold first-letter:float-left first-letter:mr-3 first-letter:mt-[-5px]" 
-                        dangerouslySetInnerHTML={{ __html: post.content }} 
+                        first-letter:text-5xl first-letter:font-bold first-letter:text-heureuse-gold first-letter:float-left first-letter:mr-3 first-letter:mt-[-5px]"
+                        dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
                     {/* Share & Tags */}
@@ -133,8 +172,8 @@ export default async function BlogPostPage({ params }: Props) {
                                 <Link key={relatedPost.slug} href={`/blog/${relatedPost.slug}`} className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                                     <div className="grid sm:grid-cols-3 h-full">
                                         <div className="relative h-48 sm:h-full">
-                                            <Image 
-                                                src={relatedPost.image || '/tank1.jpg'} 
+                                            <Image
+                                                src={relatedPost.image || '/tank1.jpg'}
                                                 alt={relatedPost.title}
                                                 fill
                                                 className="object-cover group-hover:scale-105 transition-transform duration-500"

@@ -3,11 +3,20 @@ import Section from "@/components/ui/section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { constructMetadata } from "@/lib/seo";
 import CTA from "@/components/sections/CTA";
+import { SchemaFAQ } from "@/components/seo";
 
 export const metadata = constructMetadata({
     title: "Frequently Asked Questions",
     description: "Answers to common questions about bulk fuel supply, delivery logistics, and corporate accounts with Heureuse Logistics.",
-    keywords: ["Bulk Fuel FAQ", "Diesel Delivery Questions", "Heureuse Logistics Help", "Minimum Order Quantity Fuel"],
+    keywords: [
+        "Bulk Fuel FAQ",
+        "Diesel Delivery Questions",
+        "Heureuse Logistics Help",
+        "Minimum Order Quantity Fuel",
+        "Fuel Supply FAQ",
+        "Bulk Fuel Delivery Questions"
+    ],
+    canonical: "/faqs",
 });
 
 const faqs = [
@@ -36,8 +45,17 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+    // Flatten FAQs for schema
+    const faqItems = faqs.flatMap(cat => 
+        cat.items.map(item => ({
+            question: item.q,
+            answer: item.a
+        }))
+    );
+
     return (
         <div>
+            <SchemaFAQ faqs={faqItems} />
             <Section background="hero-image" className="pt-32 pb-20">
                 <div className="max-w-4xl mx-auto text-center text-white">
                     <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>

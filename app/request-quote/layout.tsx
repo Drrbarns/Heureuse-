@@ -2,9 +2,18 @@
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-    title: "Request a Quote | Bulk Fuel Supply",
-    description: "Request a competitive quote for bulk diesel and petrol delivery in Ghana. Fast response and reliable service.",
-    keywords: ["Request Fuel Quote", "Bulk Diesel Price", "Order Petrol Ghana", "Fuel Delivery Quote"],
+    title: "Request a Quote",
+    description: "Get a customized quote for bulk fuel supply. Fill out our simple form with your company details, fuel requirements, and delivery preferences.",
+    keywords: [
+        "Bulk Fuel Quote",
+        "Request Fuel Quote",
+        "Diesel Price Quote",
+        "Petrol Supply Quote",
+        "Fuel Delivery Quote Ghana",
+        "Bulk Diesel Price",
+        "Order Petrol Ghana"
+    ],
+    canonical: "/request-quote",
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {

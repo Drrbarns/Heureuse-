@@ -3,8 +3,9 @@ import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
     title: "Privacy Policy",
-    description: "Privacy Policy for Heureuse Logistics. How we collect, use, and protect your data.",
-    keywords: ["Privacy Policy", "Data Protection", "Heureuse Logistics Privacy"],
+    description: "Privacy Policy for Heureuse Logistics. Learn how we collect, use, and protect your personal data.",
+    keywords: ["Privacy Policy", "Data Protection", "Heureuse Logistics Privacy", "Personal Data Protection"],
+    canonical: "/privacy",
 });
 
 export default function PrivacyPage() {
