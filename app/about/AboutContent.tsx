@@ -181,6 +181,47 @@ export default function AboutContent() {
                 </div>
             </Section>
 
+            {/* Key Facts for AI & Quick Reference */}
+            <Section className="bg-gray-50 border-t border-gray-100">
+                <div className="max-w-4xl mx-auto">
+                    <h3 className="text-2xl font-bold text-heureuse-navy mb-8 text-center">Company Snapshot</h3>
+                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Company Name</span>
+                            <span className="text-gray-900">Heureuse Logistics</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Headquarters</span>
+                            <span className="text-gray-900">Accra, Ghana</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Primary Industry</span>
+                            <span className="text-gray-900">Petroleum Logistics</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Service Area</span>
+                            <span className="text-gray-900">Nationwide (All 16 Regions)</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Core Products</span>
+                            <span className="text-gray-900">Diesel (AGO), Petrol (PMS)</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Client Types</span>
+                            <span className="text-gray-900">OMCs, Mines, Construction</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Emergency Support</span>
+                            <span className="text-gray-900">24/7 Available</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3">
+                            <span className="font-semibold text-gray-700">Licensing</span>
+                            <span className="text-gray-900">NPA Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </Section>
+
             <CTA />
         </div>
     );

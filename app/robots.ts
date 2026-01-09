@@ -16,6 +16,21 @@ export default function robots(): MetadataRoute.Robots {
                 crawlDelay: 0,
             },
             {
+                userAgent: "Google-Extended",
+                allow: "/",
+                disallow: ["/private/", "/api/"],
+            },
+            {
+                userAgent: "GPTBot",
+                allow: "/",
+                disallow: ["/private/", "/api/"],
+            },
+            {
+                userAgent: "CCBot",
+                allow: "/",
+                disallow: ["/private/", "/api/"],
+            },
+            {
                 userAgent: "Bingbot",
                 allow: "/",
                 disallow: ["/private/", "/api/"],

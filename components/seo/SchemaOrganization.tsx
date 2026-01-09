@@ -26,6 +26,8 @@ export default function SchemaOrganization({
         "url": COMPANY_INFO.website,
         "logo": `${COMPANY_INFO.website}/logo111.png`,
         "slogan": slogan,
+        "description": "Heureuse Logistics is a premier bulk fuel supply and logistics company in Ghana, specializing in the delivery of high-quality Diesel (AGO) and Petrol (PMS) to OMCs, mines, construction sites, and corporate fleets.",
+        "knowsAbout": ["Bulk Fuel Supply", "Logistics", "Energy Distribution", "Petroleum Product Haulage", "Fuel Management"],
         "foundingDate": foundingDate,
         "numberOfEmployees": numberOfEmployees,
         "additionalType": additionalType || ["https://schema.org/Wholesale", "https://schema.org/TransportationService"],
