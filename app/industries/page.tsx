@@ -17,7 +17,12 @@ export const metadata = constructMetadata({
         "Transport Fleet Fuel",
         "Industrial Fuel Ghana",
         "Hospital Generator Fuel",
-        "Hotel Fuel Supply"
+        "Hotel Fuel Supply",
+        "Quarry Fuel Delivery",
+        "Road Construction Fuel",
+        "Manufacturing Plant Diesel",
+        "Telecom Mast Fueling",
+        "School Power Generator Fuel"
     ],
     canonical: "/industries",
 });

@@ -10,10 +10,11 @@ export const metadata = constructMetadata({
     keywords: [
         "Contact Heureuse Logistics",
         "Fuel Supply Contact Ghana",
-        "Bulk Diesel Contact",
-        "Fuel Delivery Accra",
-        "Ghana Fuel Supplier Phone",
-        "Emergency Fuel Delivery"
+        "Bulk Diesel Order Phone",
+        "Fuel Delivery Accra Office",
+        "Ghana Fuel Supplier Customer Service",
+        "24/7 Emergency Fuel Support",
+        "Fuel Quote Request Ghana"
     ],
     canonical: "/contact",
 });

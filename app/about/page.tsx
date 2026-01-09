@@ -9,11 +9,12 @@ export const metadata = constructMetadata({
     description: "Learn about Heureuse Logistics - Ghana's premier bulk fuel supply company. Discover our mission, vision, values, and commitment to reliable energy delivery across West Africa.",
     keywords: [
         "About Heureuse Logistics",
-        "Bulk Fuel Company Ghana",
-        "Fuel Supplier History",
+        "Licensed Bulk Fuel Company Ghana",
+        "Fuel Supplier History West Africa",
         "Ghana Energy Partner",
-        "Trusted Fuel Logistics",
-        "Fuel Supply Mission"
+        "Reliable Fuel Logistics Team",
+        "Fuel Supply Mission Statement",
+        "Accra Fuel Distribution Company"
     ],
     canonical: "/about",
 });

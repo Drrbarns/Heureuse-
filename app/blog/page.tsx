@@ -10,13 +10,15 @@ export const metadata = constructMetadata({
     title: "Fuel Logistics Blog | Industry Insights",
     description: "Latest updates, industry trends, and expert advice on bulk fuel supply and logistics in Ghana.",
     keywords: [
-        "Fuel Logistics Blog",
-        "Ghana Oil Industry News",
-        "Diesel Price Trends",
-        "Bulk Fuel Tips",
-        "Logistics Insights",
-        "Fuel Industry Blog",
-        "Energy Logistics Articles"
+        "Fuel Logistics News Ghana",
+        "Ghana Oil Industry Insights",
+        "Diesel Price Forecasts",
+        "Bulk Fuel Safety Tips",
+        "Logistics Management Guide",
+        "Fuel Quality Standards",
+        "OMC Business Tips",
+        "Construction Fuel Advice",
+        "Fleet Fuel Management Strategies"
     ],
     canonical: "/blog",
 });

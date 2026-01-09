@@ -33,20 +33,23 @@ const faqs = [
         items: [
             { q: "How do you guarantee fuel quality?", a: "We source only from top-tier Bulk Distribution Companies (BDCs) and provide a Certificate of Analysis (CoA) upon request. Our tankers are sealed and tracked." },
             { q: "Are your trucks compliant with safety standards?", a: "Absolutely. All our trucks are NPA-licensed, fitted with tracking devices, and operated by trained drivers adhering to strict HSSE protocols." },
+            { q: "Do you supply low-sulfur diesel?", a: "Yes, we supply standard low-sulfur diesel (50ppm or lower) suitable for modern engines, heavy machinery, and sensitive generators to extend their lifespan." }
         ]
     },
     {
-        category: "Payments & Contracts",
+        category: "Payments, Pricing & Coverage",
         items: [
-            { q: "Do you offer credit facilities?", a: "Yes, we offer credit terms to qualifying corporate clients after a credit assessment and initial probationary period." },
-            { q: "What payment methods do you accept?", a: "We accept Bank Transfers, Cheques, and Mobile Money for smaller volumes. Cash handling is minimized for safety." },
+            { q: "What is the current price of bulk diesel?", a: "Bulk fuel prices fluctuate based on deregulation and NPA window rates. tailored to your volume. Contact us for a real-time, competitive quote." },
+            { q: "Do you offer credit facilities?", a: "Yes, we offer flexible credit terms to qualifying corporate clients and OMCs after a standard credit assessment." },
+            { q: "What areas do you cover in Ghana?", a: "We have nationwide coverage. From the Greater Accra Region to the Ashanti, Western, Northern, and other regions, our fleet can reach your site, even in remote areas." },
+            { q: "Can you fill up my backup generator?", a: "Yes, we provide specialized discharge services for corporate and industrial backup generators, ensuring your business stays powered during outages." }
         ]
     }
 ];
 
 export default function FAQPage() {
     // Flatten FAQs for schema
-    const faqItems = faqs.flatMap(cat => 
+    const faqItems = faqs.flatMap(cat =>
         cat.items.map(item => ({
             question: item.q,
             answer: item.a

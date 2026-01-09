@@ -11,28 +11,28 @@ import { useRef } from "react";
 const services = [
     {
         title: "Bulk Diesel Supply (AGO)",
-        content: "Our core service. We supply premium Automotive Gas Oil (AGO) to OMCs, industrial sites, and commercial fleets. We guarantee pure product, free from adulteration.",
+        content: "Our core service. We supply premium Automotive Gas Oil (AGO) to OMCs, industrial sites, mines, and commercial fleets across Ghana. We guarantee pure, low-sulfur product, free from adulteration, ensuring your heavy machinery runs efficiently.",
         features: ["Ultra-low sulfur content", "CoA provided per delivery", "Flexible volume options"],
         image: "/1.jpg",
         icon: Zap
     },
     {
         title: "Bulk Petrol Supply (PMS)",
-        content: "Reliable supply of Premium Motor Spirit (PMS) for filling stations and commercial use. We ensure safe transport and timely discharge to keep your pumps running.",
-        features: ["Consistent availability", "Safety-compliant tankers", "Competitive pricing"],
+        content: "Reliable supply of Premium Motor Spirit (PMS) for filling stations and commercial use. We act as a key partner for Oil Marketing Companies (OMCs), ensuring safe transport and timely discharge to keep your pumps running without shortage.",
+        features: ["Consistent availability", "Safety-compliant tankers", "Competitive wholesale pricing"],
         image: "/2.jpg",
         icon: TrendingUp
     },
     {
         title: "Corporate Fuel Management",
-        content: "We act as your outsourced fuel department. We monitor your usage, schedule refills automatically, and provide detailed reporting to help you manage costs.",
+        content: "We act as your outsourced fuel department. We monitor your usage, schedule refills automatically for your generators and fleets, and provide detailed reporting. This helps you manage costs and prevent fuel theft or wastage.",
         features: ["Usage tracking & reporting", "Automatic replenishment", "Dedicated account manager"],
         image: "/3.jpg",
         icon: Truck
     },
     {
         title: "Remote Site Delivery",
-        content: "Getting fuel to hard-to-reach locations is our specialty. Whether it's a road construction project or a new mine site, our trucks are equipped for the terrain.",
+        content: "Getting fuel to hard-to-reach locations is our specialty. Whether it's a road construction project in the North or a new mine site in the West, our off-road capable trucks are equipped for difficult terrain to deliver diesel exactly where you need it.",
         features: ["Off-road capable fleet", "On-site discharge support", "Emergency delivery options"],
         image: "/4.jpg",
         icon: MapPin

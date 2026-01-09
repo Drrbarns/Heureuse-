@@ -23,7 +23,13 @@ export const metadata = constructMetadata({
         "Fuel Logistics Ghana",
         "OMC Supply Partner",
         "Construction Site Fuel",
-        "Mining Fuel Delivery Ghana"
+        "Mining Fuel Delivery Ghana",
+        "Reliable Fuel Tankers",
+        "Fuel Bunkering Services",
+        "Emergency Fuel Delivery",
+        "Hospital Generator Fuel",
+        "Fleet Fuel Management",
+        "Low Sulfur Diesel Ghana"
     ],
     canonical: "/",
 });

@@ -16,7 +16,13 @@ export const metadata: Metadata = {
         template: "%s | Heureuse Logistics",
     },
     description: "Reliable bulk fuel supply and logistics company in Ghana. We deliver high-quality diesel and petrol to OMCs, construction sites, mines, and fleet operators.",
-    keywords: ["Bulk Fuel Supply", "Diesel Supply Ghana", "OMC Partner", "Fuel Logistics", "Direct to Site Fuel", "Heureuse Logistics", "Mining Fuel Supply"],
+    keywords: [
+        "Bulk Fuel Supply", "Diesel Supply Ghana", "OMC Partner", "Fuel Logistics",
+        "Direct to Site Fuel", "Heureuse Logistics", "Mining Fuel Supply",
+        "Fuel Suppliers in Ghana", "Best Oil Marketing Company Partners", "Bulk Petroleum Haulage",
+        "Diesel Price Ghana", "Industrial Fuel Services", "Generator Fuel Delivery",
+        "Construction Site Fuel Services", "Petrol Wholesale Ghana", "Clean Fuel Delivery"
+    ],
     metadataBase: new URL('https://heureusesupply.com'),
     alternates: {
         canonical: '/',
