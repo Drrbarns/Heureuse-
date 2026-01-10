@@ -23,11 +23,62 @@ export default function SchemaOrganization({
         "@type": "Organization",
         "@id": `${COMPANY_INFO.website}#organization`,
         "name": COMPANY_INFO.name,
+        "legalName": COMPANY_INFO.legalName,
+        "alternateName": COMPANY_INFO.alternateName,
         "url": COMPANY_INFO.website,
         "logo": `${COMPANY_INFO.website}/logo111.png`,
         "slogan": slogan,
-        "description": "Heureuse Logistics is a premier bulk fuel supply and logistics company in Ghana, specializing in the delivery of high-quality Diesel (AGO) and Petrol (PMS) to OMCs, mines, construction sites, and corporate fleets.",
-        "knowsAbout": ["Bulk Fuel Supply", "Logistics", "Energy Distribution", "Petroleum Product Haulage", "Fuel Management"],
+        "description": COMPANY_INFO.description,
+        "knowsAbout": [
+            "Bulk Fuel Supply",
+            "Bulk Fuel Supply Ghana",
+            "Fuel Delivery Accra",
+            "OMC Fuel Supply Ghana",
+            "Diesel Supply Ghana",
+            "Petrol Supply Ghana",
+            "Mining Fuel Delivery",
+            "Construction Site Fuel",
+            "Logistics",
+            "Energy Distribution",
+            "Petroleum Product Haulage",
+            "Fuel Management",
+            "AGO Supply",
+            "PMS Supply"
+        ],
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Bulk Diesel Supply (AGO)",
+                    "description": "Premium Automotive Gas Oil delivery to OMCs, mines, and industrial sites across Ghana"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Bulk Petrol Supply (PMS)",
+                    "description": "Reliable Premium Motor Spirit supply for filling stations and commercial use in Ghana"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Fuel Delivery Accra",
+                    "description": "Same-day and next-day fuel delivery services in Greater Accra Region"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "OMC Fuel Supply",
+                    "description": "Wholesale fuel supply partnership for Oil Marketing Companies in Ghana"
+                }
+            }
+        ],
         "foundingDate": foundingDate,
         "numberOfEmployees": numberOfEmployees,
         "additionalType": additionalType || ["https://schema.org/Wholesale", "https://schema.org/TransportationService"],

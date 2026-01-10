@@ -15,14 +15,20 @@ export const metadata: Metadata = {
         default: "Heureuse Logistics GH | Premier Bulk Fuel Supply in Ghana",
         template: "%s | Heureuse Logistics GH",
     },
-    description: "Reliable bulk fuel supply and logistics company in Ghana. We deliver high-quality diesel and petrol to OMCs, construction sites, mines, and fleet operators.",
+    description: "Heureuse Logistics - Ghana's trusted bulk fuel supply company. We deliver diesel (AGO) and petrol (PMS) to OMCs, construction sites, mines, and fleet operators. Fuel delivery in Accra and nationwide.",
     keywords: [
-        "Heureuse GH", "Heureuse Ghana", "Heureuse Logistics GH",
-        "Bulk Fuel Supply", "Diesel Supply Ghana", "OMC Partner", "Fuel Logistics",
-        "Direct to Site Fuel", "Heureuse Logistics", "Mining Fuel Supply",
-        "Fuel Suppliers in Ghana", "Best Oil Marketing Company Partners", "Bulk Petroleum Haulage",
-        "Diesel Price Ghana", "Industrial Fuel Services", "Generator Fuel Delivery",
-        "Construction Site Fuel Services", "Petrol Wholesale Ghana", "Clean Fuel Delivery"
+        // Brand signals
+        "Heureuse", "Heureuse GH", "Heureuse Ghana", "Heureuse Logistics", "Heureuse Logistics GH",
+        "Heureuse Supply", "Heureuse Fuel Supply",
+        // Primary service terms
+        "Bulk Fuel Supply Ghana", "Fuel Delivery Accra", "OMC Fuel Supply Ghana",
+        "Diesel Supply Ghana", "Petrol Supply Ghana", "AGO Supplier Ghana", "PMS Supplier Ghana",
+        // Industry-specific
+        "Mining Fuel Supply Ghana", "Construction Site Fuel Delivery", "Fleet Fuel Management Ghana",
+        // Location-based
+        "Fuel Suppliers Accra", "Bulk Diesel Accra", "Fuel Logistics Ghana", "Petroleum Haulage Ghana",
+        // Long-tail
+        "Best Fuel Supplier Ghana", "Reliable Fuel Delivery Ghana", "24/7 Fuel Supply Ghana"
     ],
     metadataBase: new URL('https://heureusesupply.com'),
     alternates: {

@@ -5,16 +5,20 @@ import { COMPANY_INFO } from "@/lib/constants";
 import ServicesContent from "./ServicesContent";
 
 export const metadata = constructMetadata({
-    title: "Our Services | Bulk Fuel Supply Solutions",
-    description: "Comprehensive bulk fuel supply services in Ghana. Diesel (AGO), Petrol (PMS), corporate fuel management, and remote site delivery for OMCs, construction, and mining.",
+    title: "Bulk Fuel Supply Services Ghana | Diesel & Petrol Delivery | Heureuse",
+    description: "Heureuse Logistics offers bulk fuel supply services in Ghana: Diesel (AGO) delivery, Petrol (PMS) supply, OMC fuel partnership, corporate fuel management, and 24/7 fuel delivery to Accra, mines, and construction sites.",
     keywords: [
-        "Bulk Diesel Supply Ghana",
-        "AGO Supply",
-        "PMS Supply Ghana",
-        "Corporate Fuel Management",
-        "Remote Site Fuel Delivery",
-        "Mining Fuel Supply Ghana",
-        "Construction Fuel Delivery"
+        // Primary service terms
+        "Bulk Fuel Supply Ghana", "Fuel Delivery Accra", "OMC Fuel Supply Ghana",
+        "Diesel Supply Ghana", "Petrol Supply Ghana",
+        // Brand
+        "Heureuse Services", "Heureuse Fuel Delivery",
+        // Specific services
+        "Bulk Diesel Supply Ghana", "AGO Supply Ghana", "PMS Supply Ghana",
+        "Corporate Fuel Management", "Remote Site Fuel Delivery",
+        "Mining Fuel Supply Ghana", "Construction Fuel Delivery",
+        // Location-based
+        "Fuel Delivery Greater Accra", "Fuel Supply Kumasi", "Fuel Supply Takoradi"
     ],
     canonical: "/services",
 });
@@ -28,12 +32,12 @@ export default function ServicesPage() {
             ]} />
             <SchemaService
                 serviceType="Bulk Fuel Supply"
-                serviceName="Bulk Fuel Supply Services"
-                description="Comprehensive bulk fuel supply services including diesel (AGO), petrol (PMS), corporate fuel management, and remote site delivery across Ghana."
-                areaServed={["Ghana"]}
+                serviceName="Bulk Fuel Supply Ghana - Heureuse Logistics"
+                description="Ghana's premier bulk fuel supply services. Heureuse Logistics delivers diesel (AGO) and petrol (PMS) to OMCs, construction sites, mines, and corporate fleets. 24/7 fuel delivery in Accra and nationwide."
+                areaServed={["Ghana", "Accra", "Kumasi", "Takoradi", "Tema"]}
                 serviceOutput={{
-                    name: "Bulk Diesel and Petrol",
-                    description: "High-quality bulk diesel and petrol supply for OMCs, construction sites, and industrial facilities"
+                    name: "Bulk Diesel and Petrol Delivery",
+                    description: "High-quality bulk diesel (AGO) and petrol (PMS) supply for OMCs, mining sites, construction projects, and industrial facilities across Ghana"
                 }}
             />
             <ServicesContent />

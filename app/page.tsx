@@ -13,23 +13,22 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { SchemaLocalBusiness, SchemaHowTo } from "@/components/seo";
 
 export const metadata = constructMetadata({
-    title: "Reliable Bulk Fuel Supply in Ghana | Diesel & Petrol Delivery",
-    description: "Heureuse Logistics provides seamless bulk diesel (AGO) and petrol (PMS) supply for OMCs, construction sites, mining operations, and corporate fleets in Ghana. Request a quote today.",
+    title: "Bulk Fuel Supply Ghana | Diesel & Petrol Delivery Accra | Heureuse",
+    description: "Heureuse Logistics - Ghana's #1 bulk fuel supply company. We deliver diesel (AGO) and petrol (PMS) to OMCs, mines, construction sites, and fleets. Same-day fuel delivery in Accra. Request a quote today.",
     keywords: [
-        "Bulk Fuel Supply Ghana",
-        "Diesel Supply Accra",
-        "AGO Supplier Ghana",
-        "PMS Bulk Supply",
-        "Fuel Logistics Ghana",
-        "OMC Supply Partner",
-        "Construction Site Fuel",
-        "Mining Fuel Delivery Ghana",
-        "Reliable Fuel Tankers",
-        "Fuel Bunkering Services",
-        "Emergency Fuel Delivery",
-        "Hospital Generator Fuel",
-        "Fleet Fuel Management",
-        "Low Sulfur Diesel Ghana"
+        // Primary service terms
+        "Bulk Fuel Supply Ghana", "Fuel Delivery Accra", "OMC Fuel Supply Ghana",
+        "Diesel Supply Ghana", "Petrol Supply Ghana",
+        // Brand terms
+        "Heureuse", "Heureuse Logistics", "Heureuse GH", "Heureuse Ghana",
+        // Specific services
+        "AGO Supplier Ghana", "PMS Supplier Ghana", "Bulk Diesel Accra",
+        "Mining Fuel Delivery Ghana", "Construction Site Fuel Delivery",
+        // Industry terms
+        "OMC Supply Partner", "Fleet Fuel Management Ghana",
+        "Generator Fuel Delivery", "Emergency Fuel Supply Ghana",
+        // Long-tail
+        "Best Fuel Supplier Ghana", "Reliable Fuel Tankers Ghana", "Low Sulfur Diesel Ghana"
     ],
     canonical: "/",
 });

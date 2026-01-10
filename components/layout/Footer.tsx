@@ -50,14 +50,15 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Services */}
+                    {/* Services - SEO optimized anchor text */}
                     <div className="text-center md:text-left">
-                        <h4 className="text-base md:text-lg font-semibold text-heureuse-gold mb-4 md:mb-6">Services</h4>
+                        <h4 className="text-base md:text-lg font-semibold text-heureuse-gold mb-4 md:mb-6">Our Services</h4>
                         <ul className="space-y-2 md:space-y-3">
-                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Bulk Diesel Supply</Link></li>
-                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Direct-to-Site Delivery</Link></li>
-                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Fleet Refueling</Link></li>
-                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Corporate Contracts</Link></li>
+                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Bulk Fuel Supply Ghana</Link></li>
+                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Diesel Delivery Accra</Link></li>
+                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">OMC Fuel Supply</Link></li>
+                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Mining & Construction Fuel</Link></li>
+                            <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm inline-block py-1">Fleet Fuel Management</Link></li>
                         </ul>
                     </div>
 

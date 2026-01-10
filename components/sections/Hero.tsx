@@ -27,7 +27,7 @@ export default function Hero() {
     return (
         <section ref={ref} className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-heureuse-navy">
             {/* Background with Gradient/Image Overlay */}
-            <motion.div 
+            <motion.div
                 className="absolute inset-0 z-0 will-change-transform" // Added will-change hint
                 style={{ y: backgroundY }}
             >
@@ -58,7 +58,7 @@ export default function Hero() {
             </motion.div>
 
             <div className="container relative z-10 px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
-                <motion.div 
+                <motion.div
                     style={{ y: textY }}
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -66,15 +66,14 @@ export default function Hero() {
                     className="space-y-8 text-center lg:text-left"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
-                        Reliable Energy, <br />
+                        <span className="text-heureuse-gold">Heureuse</span> – Your Trusted<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-heureuse-gold via-white to-heureuse-gold bg-[length:200%_auto] animate-shine">
-                            Seamless Delivery.
+                            Bulk Fuel Partner.
                         </span>
                     </h1>
 
                     <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed mx-auto lg:mx-0">
-                        We provide bulk fuel supply ensuring your operations never stop.
-                        Trusted by OMCs, construction sites, and industries across Ghana for on-time delivery and quality assurance.
+                        Ghana's premier <strong>bulk fuel supply</strong> company. We deliver diesel (AGO) and petrol (PMS) to OMCs, construction sites, mines, and fleets. <strong>Fuel delivery in Accra</strong> and nationwide – on time, every time.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
@@ -108,19 +107,19 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Visual Element / Abstract Representation */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                     className="hidden lg:block relative h-[600px] w-full"
                 >
                     {/* Abstract Composition using CSS/Shapes or placeholders */}
-                    <motion.div 
-                        animate={{ 
+                    <motion.div
+                        animate={{
                             y: [0, -20, 0],
                             rotate: [3, 1, 3]
                         }}
-                        transition={{ 
+                        transition={{
                             duration: 6,
                             repeat: Infinity,
                             ease: "easeInOut"
