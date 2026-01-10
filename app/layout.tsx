@@ -12,11 +12,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: {
-        default: "Heureuse Logistics | Premier Bulk Fuel Supply in Ghana",
-        template: "%s | Heureuse Logistics",
+        default: "Heureuse Logistics GH | Premier Bulk Fuel Supply in Ghana",
+        template: "%s | Heureuse Logistics GH",
     },
     description: "Reliable bulk fuel supply and logistics company in Ghana. We deliver high-quality diesel and petrol to OMCs, construction sites, mines, and fleet operators.",
     keywords: [
+        "Heureuse GH", "Heureuse Ghana", "Heureuse Logistics GH",
         "Bulk Fuel Supply", "Diesel Supply Ghana", "OMC Partner", "Fuel Logistics",
         "Direct to Site Fuel", "Heureuse Logistics", "Mining Fuel Supply",
         "Fuel Suppliers in Ghana", "Best Oil Marketing Company Partners", "Bulk Petroleum Haulage",
@@ -62,12 +63,14 @@ export const metadata: Metadata = {
     },
     icons: {
         icon: [
-            { url: '/favicon.png', type: 'image/png' },
+            { url: '/favicon.ico', sizes: 'any' },
+            { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
+            { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
         ],
         apple: [
-            { url: '/logo1111.png', sizes: '180x180', type: 'image/png' },
+            { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
         ],
-        shortcut: '/favicon.png',
+        shortcut: '/favicon.ico',
     },
 };
 
